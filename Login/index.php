@@ -14,10 +14,14 @@
     <h1>SUPERAÇÃO 3.0</h1>
         
         <form method="POST">
-           
-            <input type="email" name="email" placeholder="E-mail">
-            <input type="password" name="senha" placeholder="Senha">
-            <input type="submit" name="logar" value="Login">
+           <div class="div-input">
+                <input type="email" name="email" placeholder="E-mail">
+                <input type="password" name="senha" placeholder="Senha">
+            </div>
+
+            <div class="div-submit">
+                <input type="submit" name="logar" value="Login">
+            </div>
         </form>
         <?php // login($connect)?>
     </div>
