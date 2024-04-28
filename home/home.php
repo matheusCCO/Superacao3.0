@@ -1,22 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styleHome.css">
-    <title>Superação3.0</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a class="logo" href="#"></a>Escolher meus avaliadores</li>
-                <li><a class="logo" href="#"></a>Realizar Feedback</li>
-                <li><a class="logo" href="#"></a>Feedback não solicitado</li>
-            </ul>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Superação</title>
+    <link rel="stylesheet" href="styleHome.css" />
+  </head>
 
-        </nav>
+  <body>
+    <header>
+      <nav>
+        <a class="logo" href="#">Superação</a>
+        <ul class="nav-list">
+          <li><a href="#">Escolher avaliadores</a></li>
+          <li><a href="#">Realizar FeedBack</a></li>
+          <li><a href="#">Não Solicitados</a></li>
+        </ul>
+      </nav>
     </header>
-    <main></main>
-</body>
+    <main>
+      <h1>FeedBack 360:</h1>
+    <?php $ciclos = array(1,2,3,4); foreach ($ciclos as $ciclo) {?>
+      <button type="button" class="collapsible"><?php echo "202".$ciclo;?></button>
+      <div class="content">
+        <table>
+          <tr>
+            <th>Avaliador</th>
+            <th>Começar</th>
+            <th>Parar</th>
+            <th>Continuar</th>
+                </tr>
+                <tr>
+                  <td>Jill</td>
+                  <td>Ver chamados</td>
+                  <td>Qualquer coisa</td>
+                  <td>Falandoi</td>
+                </tr>
+                <tr>
+                  <td>Eve</td>
+                  <td>Ver chamados</td>
+                  <td>Qualquer coisa</td>
+                  <td>Falandoi</td>
+                </tr>
+                <tr>
+                  <td>Adam</td>
+                  <td>Ver chamados</td>
+                  <td>Qualquer coisa</td>
+                  <td>Falandoi</td>
+                </tr>
+              </table>
+        </div>
+    <?php }?>
+    </main>
+    <script src="collapsible.js"></script>
+  </body>
 </html>
