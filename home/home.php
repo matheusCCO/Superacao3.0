@@ -11,7 +11,7 @@
   <body>
     <header>
       <nav>
-        <a class="logo" href="#">Superação</a>
+        <a class="logo" href="#">Superação 3.0</a>
         <ul class="nav-list">
           <li><a href="#">Escolher avaliadores</a></li>
           <li><a href="#">Realizar FeedBack</a></li>
