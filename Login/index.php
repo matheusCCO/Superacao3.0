@@ -1,4 +1,4 @@
-<?php // require_once "function.php";?>
+<?php  require_once "../servidor/server.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,7 @@
                 <input type="submit" name="logar" value="Login">
             </div>
         </form>
-        <?php // login($connect)?>
+        <?php  login($connect)?>
     </div>
     </main>
 </body>
