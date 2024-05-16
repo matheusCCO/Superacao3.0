@@ -9,16 +9,7 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <a class="logo" href="#">Superação 3.0</a>
-        <ul class="nav-list">
-          <li><a href="#">Escolher avaliadores</a></li>
-          <li><a href="#">Realizar FeedBack</a></li>
-          <li><a href="#">Não Solicitados</a></li>
-        </ul>
-      </nav>
-    </header>
+  <?php require "../layout/topo.php"; ?>
     <main>
       <h1>FeedBack 360:</h1>
     <?php $ciclos = array(1,2,3,4); foreach ($ciclos as $ciclo) {?>
