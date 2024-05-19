@@ -22,7 +22,7 @@ function login($connect){
                 $_SESSION['nome'] = $result['NOME'];
                 $_SESSION['email'] = $result['EMAIL'];
                 $_SESSION['ativa'] = true;
-                header("location: ../home/home.php");
+                header("location: ../../frontEnd/telaHome/home.php");
             } else{
                 echo "<p>Email ou senha não encontrados</p>";
             }

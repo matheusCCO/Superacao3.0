@@ -4,9 +4,12 @@
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
     background: url('../img/imgPredios.jpg')no-repeat;
     background-position: center;
     background-size: cover;
+
 }
 
 main {
@@ -27,8 +30,8 @@ main {
     width: auto;
     height: 400px;
     backdrop-filter: blur(15px);
-    border: 2px solid rgba(255,255,255,0.5);
-    
+    border: 2px solid rgba(255, 255, 255, 0.5);
+
 }
 
 h1 {
@@ -37,7 +40,8 @@ h1 {
     font-weight: 100;
     font-style: normal;
 }
-p{
+
+p {
     color: #fff;
 }
 
@@ -50,10 +54,10 @@ p{
     border: none;
     outline: none;
     border-bottom: 2px solid rgba(0, 0, 0);
-    background: transparent; 
+    background: transparent;
 }
 
-.div-submit input{
+.div-submit input {
 
 
     width: 50%;
@@ -66,12 +70,14 @@ p{
     font-size: 1em;
     font-weight: 600px;
 }
+
 .div-submit {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-input::placeholder{
+
+input::placeholder {
     color: #fff;
 }
 
@@ -80,9 +86,12 @@ p {
     text-align: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1200px) {
     body {
-        background-repeat: no-repeat;
+        background: url('../img/imgLoginVertical.jpg')no-repeat;
+        background-position: center;
+        background-size: cover;
+
     }
 
     main {
