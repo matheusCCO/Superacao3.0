@@ -1,0 +1,13 @@
+Query para ver as avaliações a serem feitas
+
+SELECT colaborador.NOME, avaliador.ID_AVALIADOR
+FROM colaborador, avaliador
+WHERE avaliador.ID_AVALIADOR = 2 and colaborador.ID_COLABORADOR = avaliador.ID_COLABORADOR;
+
+
+
+Query para ver os meus avaliadores
+
+SELECT colaborador.NOME, avaliador.ID_COLABORADOR
+FROM colaborador, avaliador
+WHERE avaliador.ID_COLABORADOR = 1 and colaborador.ID_COLABORADOR = avaliador.ID_AVALIADOR;
