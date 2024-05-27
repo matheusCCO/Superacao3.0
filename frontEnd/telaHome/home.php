@@ -44,6 +44,8 @@
         </div>
     <?php }?>
     </main>
+    <?php require "../layout/rodaPe.php"; ?>
+
     <script src="collapsible.js"></script>
   </body>
 </html>

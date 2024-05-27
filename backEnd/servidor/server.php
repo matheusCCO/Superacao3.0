@@ -63,3 +63,11 @@ function solicitaAvaliador($connect, $id_colaborador, $departamento, $id_solicit
         echo "<h2 class='msg'>Erro ao inserir.</h2>";
     }
 }
+
+
+function  meusAvaliadores($connect){
+    $query = "SELECT colaborador.NOME, avaliador.ID_COLABORADOR FROM colaborador, avaliador WHERE avaliador.ID_COLABORADOR = 1 and colaborador.ID_COLABORADOR = avaliador.ID_AVALIADOR;";
+	$action = mysqli_query( $connect, $query );
+	$results = mysqli_fetch_all($action, MYSQLI_ASSOC);
+	return $results;
+}
