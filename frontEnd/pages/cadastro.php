@@ -1,3 +1,4 @@
+<?php require_once "../../backEnd/servidor/server.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

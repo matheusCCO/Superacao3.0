@@ -24,7 +24,7 @@ function login($connect)
                 $_SESSION['nome'] = $result['NOME'];
                 $_SESSION['email'] = $result['EMAIL'];
                 $_SESSION['ativa'] = true;
-                header("location: frontEnd/telaHome/home.php");
+                header("location: frontEnd/pages/home.php");
             } else {
                 echo "<p>Email ou senha não encontrados</p>";
             }
@@ -43,7 +43,6 @@ function buscaAvaliador360($connect)
         $results = mysqli_fetch_assoc($action);
         if (!empty($results)) {
             //echo "<p>".$results["NOME"]."  ".$results["FUNCAO"]."</p>";
-            echo "<br>";
             return $results;
         } else {
             echo "<p>Colaborador não encontrado</p>";
@@ -58,7 +57,7 @@ function solicitaAvaliador($connect, $id_colaborador, $departamento, $id_solicit
     $execute = mysqli_query($connect, $query);
     if ($execute) {
         echo "<h2 class='msg'>Usuário inserido com sucesso.</h2>";
-        header("location: ../../frontEnd/solicitarFeedBack/telaEscolerAvaliadores360.php");
+        header("location: ../../frontEnd/pages/telaEscolerAvaliadores360.php");
     } else {
         echo "<h2 class='msg'>Erro ao inserir.</h2>";
     }
