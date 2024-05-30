@@ -16,10 +16,10 @@
         <section>
             <form method="GET">
                 <label>Objetivo</label>
-                <input type="text">
+                <input class="input-obj" type="text" >
                 <label>Peso(%)</label>
                 <input type="number" class="input-number">
-                <label>Perpectiva</label>
+            <label>Perpectiva</label>
                 <select name="perpectiva">
                     <option value=""> </option>
                     <option value="pessoa">Pessoa</option>
@@ -27,6 +27,8 @@
                     <option value="cliente">Cliente</option>
                     <option value="Processo">Processo</option>
                 </select>
+                <input type="submit" nome="adicionar" value="Adicionar">
+                
             </form>
         </section>
     </main>
