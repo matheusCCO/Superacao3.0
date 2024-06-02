@@ -1,4 +1,4 @@
-<?php require_once "../../backEnd/servidor/server.php";?>
+<?php require_once "../../backEnd/servidor/server.php"; session_start()?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,23 +14,54 @@
     
     <main>
         <section>
-            <form method="GET">
+            <form method="get">
                 <label>Objetivo</label>
-                <input class="input-obj" type="text" >
+                <input class="input-obj" type="text" name="objetivo">
                 <label>Peso(%)</label>
                 <input type="number" class="input-number">
             <label>Perpectiva</label>
-                <select name="perpectiva">
+                <select class= "input-perpectiva"name="perpectiva" >
                     <option value=""> </option>
                     <option value="pessoa">Pessoa</option>
                     <option value="financeiro">Financeiro</option>
                     <option value="cliente">Cliente</option>
                     <option value="Processo">Processo</option>
                 </select>
-                <input type="submit" nome="adicionar" value="Adicionar">
+                <input class="btn" type="submit" name="adicionar" value="Adicionar">
+
                 
             </form>
+           
         </section>
+        
+            <?php 
+                $id_colaborador = $_SESSION['id_colaborador'];
+                addObjetivos($connect, $id_colaborador);
+            ?>
+
+            <section>
+                <div>
+                <table>
+                    <tr>
+                        <th>Objetivo</th>
+                    </tr>
+                <?php 
+                    $meusOjetivos = mostrarMeusObjetivos($connect, $id_colaborador);
+
+                    foreach($meusOjetivos as $objetivos){
+                        $objetivo = $objetivos['DESCRICAO_OBJETIVO'];?>
+                    <tr>
+                    <td><?php echo $objetivo; ?></td>
+                    
+                    </tr>
+                    
+                <?php } ?>
+
+                </table>
+                </div>
+            </section>
+            
+        
     </main>
     
 </body>
