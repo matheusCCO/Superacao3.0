@@ -145,6 +145,13 @@ div{
     display: flex;
     width: 100%;
     justify-content: center;
+    margin: 150px 0 0 0;
+}
+.formulario{ 
+    border: solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
 }
 
 table{
@@ -158,6 +165,6 @@ th, td{
 }
 tr:nth-child(even){background-color: #f2f2f2}
 th {
-    background-color: #04AA6D;
+    background-color: #23232e;
     color: white;
   }
