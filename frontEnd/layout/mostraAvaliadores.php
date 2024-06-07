@@ -9,7 +9,6 @@
                     foreach( $resultadoAvaliadores as $avalidores){                   
                         $nome = $avalidores['NOME'];
                        // echo $nome."<br>";?>
-            
                 <tr>
                     <td><?php echo $avalidores['NOME']; ?></td>
                     <td>Em Avaliação</td>
@@ -18,6 +17,5 @@
                  } else {
                     echo "<h2>Voce não tem avaliadires selecionados</h2>";
                 } ?>
-            </table>
-                  
+            </table>             
 </section>

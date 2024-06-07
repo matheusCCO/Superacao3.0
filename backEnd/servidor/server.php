@@ -103,3 +103,12 @@ function quantidadeDeObjetivos($connect, $id_colaborador){
     $results = mysqli_fetch_all($action, MYSQLI_ASSOC);
     return count($results);
 }
+
+function mostrarAvaliados($connect,$id_colaborador){
+    $query = "SELECT colaborador.NOME, avaliador.ID_AVALIADOR FROM colaborador, avaliador WHERE avaliador.ID_AVALIADOR = '$id_colaborador' and colaborador.ID_COLABORADOR = avaliador.ID_COLABORADOR";
+
+    $action = mysqli_query( $connect, $query);
+
+    $results = mysqli_fetch_all($action, MYSQLI_ASSOC);
+    return $results;
+}
