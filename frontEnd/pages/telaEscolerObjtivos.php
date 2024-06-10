@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/styleTelaEscolerObjetivos.css"/>
+    <link rel="website icon" type="png" href="../img/superacao.png">
     <title>Escoler meus Objtivos</title>
 </head>
 <body>
@@ -18,20 +19,17 @@
                 <form method="get">
                     <label>Objetivo</label>
                     <input class="input-obj" type="text" name="objetivo">
+
                     <label>Peso(%)</label>
-                    <input type="number" class="input-number">
-                <label>Perpectiva</label>
-                    <select class= "input-perpectiva"name="perpectiva" >
-                        <option value=""> </option>
-                        <option value="pessoa">Pessoa</option>
-                        <option value="financeiro">Financeiro</option>
-                        <option value="cliente">Cliente</option>
-                        <option value="Processo">Processo</option>
-                    </select>
-                    <input class="btn" type="submit" name="adicionar" value="Adicionar">
+                    <input type="number" class="input-number" name="peso">
+                    
+                    <div>
+                        <label>Descrição</label>
+                        <textarea rows="10" cols="50" name="descricao"></textarea>
+                        <input class="btn" type="submit" name="adicionar" value="Adicionar">
+                    </div>   
                 </form>
             </div>
-           
         </section>
 
         

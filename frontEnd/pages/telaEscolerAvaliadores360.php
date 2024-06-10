@@ -7,6 +7,7 @@ session_start(); ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style/steyleTelaSolicitaAvaliacao.css" />
+    <link rel="website icon" type="png" href="../img/superacao.png">
     <title>Seleção de Avaliadores</title>
 </head>
 
@@ -33,14 +34,9 @@ session_start(); ?>
         <?php require "../layout/secaoValidaAvaliador.php"; ?>
         <?php $resultadoAvaliadores = meusAvaliadores($connect, $_SESSION['id_colaborador']); ?>
         <?php require "../layout/mostraAvaliadores.php"; ?>
-
-
-
     </main>
 
     <?php require "../layout/rodaPe.php"; ?>
 </body>
-
-
 
 </html>

@@ -21,10 +21,10 @@
 
                 <?php
                 if (isset($_POST['sim'])) {
-                    $id_colaborador = $_POST['id_colaborador'];
+                    $id_colaborador_avaliador = $_POST['id_colaborador'];
                     $departamento = $_POST['departamento'];
-                    $id_solicitante = $_POST['id_solicitante'];
-                    solicitaAvaliador($connect, $id_colaborador, $departamento, $id_solicitante);
+                    $id_colaborador_avaliado = $_POST['id_solicitante'];
+                    solicitaAvaliador($connect, $id_colaborador_avaliado, $departamento, $id_colaborador_avaliador);
                 }
                 if (isset($_POST['nao'])) {
                     header("location: telaEscolerAvaliadores360.php");

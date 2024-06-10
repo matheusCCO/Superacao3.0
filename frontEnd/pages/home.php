@@ -9,6 +9,7 @@ session_start(); ?>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Superação</title>
   <link rel="stylesheet" href="../style/styleTelaHome.css" />
+  <link rel="website icon" type="png" href="../img/superacao.png">
 </head>
 
 <body>
