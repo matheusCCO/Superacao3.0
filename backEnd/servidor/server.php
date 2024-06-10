@@ -63,51 +63,54 @@ function solicitaAvaliador($connect, $id_colaborador, $departamento, $id_solicit
     }
 }
 
-
-function  meusAvaliadores($connect){
-    $query = "SELECT colaborador.NOME, avaliador.ID_COLABORADOR FROM colaborador, avaliador WHERE avaliador.ID_COLABORADOR = 1 and colaborador.ID_COLABORADOR = avaliador.ID_AVALIADOR;";
-	$action = mysqli_query( $connect, $query );
-	$results = mysqli_fetch_all($action, MYSQLI_ASSOC);
-	return $results;
-}
-
-
-function addObjetivos($connect, $id_colaborador){
-    if(isset($_GET['adicionar'])){
-        $limiteDeObjetivos = quantidadeDeObjetivos($connect, $id_colaborador);
-        if($limiteDeObjetivos >= 5){
-            echo "<h3 class='retornoAlerta'>Maxino de objetivos atingidos .</h3>";
-        } else{
-        $add = mysqli_real_escape_string($connect, $_GET['objetivo']);
-        $query= "INSERT objetivo (ID_OBJETIVO, DESCRICAO_OBJETIVO, ID_COLABORADOR) VALUES (NULL, '$add', '$id_colaborador')";
-        $execute = mysqli_query($connect, $query);
-        if ($execute) {
-            echo "<div class= 'retornoSucceso'><h3 class='msg'>Objetivo adicionado com sucesso.</h3></div>";
-            //header("location: ../../frontEnd/pages/telaEscolerAvaliadores360.php");
-        } else {
-            echo "<h3 class='retornoErro'>Erro ao adicionar.</h3>";
-        }
-    }
-    }
-}
-function mostrarMeusObjetivos($connect, $id_colaborador){
-    $query = "SELECT DESCRICAO_OBJETIVO FROM objetivo WHERE ID_COLABORADOR = '$id_colaborador'";
-    $action = mysqli_query( $connect, $query );
+function  meusAvaliadores($connect, $id_colaborador)
+{
+    $query = "SELECT colaborador.NOME, avaliador.ID_COLABORADOR FROM colaborador, avaliador WHERE avaliador.ID_COLABORADOR = '$id_colaborador' and colaborador.ID_COLABORADOR = avaliador.ID_AVALIADOR;";
+    $action = mysqli_query($connect, $query);
     $results = mysqli_fetch_all($action, MYSQLI_ASSOC);
     return $results;
 }
 
-function quantidadeDeObjetivos($connect, $id_colaborador){
+function addObjetivos($connect, $id_colaborador)
+{
+    if (isset($_GET['adicionar'])) {
+        $limiteDeObjetivos = quantidadeDeObjetivos($connect, $id_colaborador);
+        if ($limiteDeObjetivos >= 5) {
+            echo "<h3 class='retornoAlerta'>Maxino de objetivos atingidos .</h3>";
+        } else {
+            $add = mysqli_real_escape_string($connect, $_GET['objetivo']);
+            $query = "INSERT objetivo (ID_OBJETIVO, DESCRICAO_OBJETIVO, ID_COLABORADOR) VALUES (NULL, '$add', '$id_colaborador')";
+            $execute = mysqli_query($connect, $query);
+            if ($execute) {
+                echo "<div class= 'retornoSucceso'><h3 class='msg'>Objetivo adicionado com sucesso.</h3></div>";
+                //header("location: ../../frontEnd/pages/telaEscolerAvaliadores360.php");
+            } else {
+                echo "<h3 class='retornoErro'>Erro ao adicionar.</h3>";
+            }
+        }
+    }
+}
+function mostrarMeusObjetivos($connect, $id_colaborador)
+{
     $query = "SELECT DESCRICAO_OBJETIVO FROM objetivo WHERE ID_COLABORADOR = '$id_colaborador'";
-    $action = mysqli_query( $connect, $query );
+    $action = mysqli_query($connect, $query);
+    $results = mysqli_fetch_all($action, MYSQLI_ASSOC);
+    return $results;
+}
+
+function quantidadeDeObjetivos($connect, $id_colaborador)
+{
+    $query = "SELECT DESCRICAO_OBJETIVO FROM objetivo WHERE ID_COLABORADOR = '$id_colaborador'";
+    $action = mysqli_query($connect, $query);
     $results = mysqli_fetch_all($action, MYSQLI_ASSOC);
     return count($results);
 }
 
-function mostrarAvaliados($connect,$id_colaborador){
+function mostrarAvaliados($connect, $id_colaborador)
+{
     $query = "SELECT colaborador.NOME, avaliador.ID_AVALIADOR FROM colaborador, avaliador WHERE avaliador.ID_AVALIADOR = '$id_colaborador' and colaborador.ID_COLABORADOR = avaliador.ID_COLABORADOR";
 
-    $action = mysqli_query( $connect, $query);
+    $action = mysqli_query($connect, $query);
 
     $results = mysqli_fetch_all($action, MYSQLI_ASSOC);
     return $results;
