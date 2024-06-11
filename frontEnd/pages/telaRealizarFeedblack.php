@@ -14,59 +14,66 @@ session_start() ?>
 
 <body>
     <?php require "../layout/topo.php"; $idAvaliador = $_SESSION['id_colaborador']?>
-    <section>
-        <table>
-            <tr>
-                <th>Colaboradores para avaliação</th>
-                <th>Ação</th>
-            </tr>
-            <?php
-            $avaliados = mostrarAvaliados($connect, $_SESSION['id_colaborador']);
-            foreach ($avaliados as $mostrarAvaliado) {
-                $avaliado = $mostrarAvaliado['NOME'];
-                $idAvaliado = $mostrarAvaliado['ID_COLABORADOR_AVALIADOR'];
-            ?>
+    <main>
+        <section>
+            <table>
                 <tr>
-                    <td><?php echo $avaliado; ?></td>
-                    <td><a href="telaRealizarFeedblack.php?id=<?php echo $idAvaliado;?>"> <img src="../img/editar.png" alt="Realizar Feedback"></a></td>
+                    <th>Colaboradores para avaliação</th>
+                    <th>Status</th>
+                    <th>Ação</th>
                 </tr>
-            <?php } ?>
-        </table>
-    </section>
-    <section>
-        <div>
-            <?php 
-                if (isset($_GET['id'])) {
-                    echo "<div ><h3>Ralizar o feedback do colaborador ". $_GET['id'] . "</h3>"; 
-                    $idAvaliado = $_GET['id'];
-                    ?>
-                    <form  method="post">
-                        <div>
+                <?php
+                $avaliados = mostrarAvaliados($connect, $_SESSION['id_colaborador']);
+                foreach ($avaliados as $mostrarAvaliado) {
+                    $avaliado = $mostrarAvaliado['NOME'];
+                    $idAvaliado = $mostrarAvaliado['ID_COLABORADOR_AVALIADO'];
+                ?>
+                    <tr>
+                        <td><?php echo $avaliado; ?></td>
+                        <td><img src="../img/atencao.png" alt="Realizar Feedback"></td>
+                        <td><a href="telaRealizarFeedblack.php?id=<?php echo $idAvaliado;?>&nome=<?php echo $avaliado;?>"> <img src="../img/editar.png" alt="Realizar Feedback"></a></td>
+                    </tr>
+                <?php } ?>
+            </table>
+        </section>
+        <section>
+            <div>
+                <?php 
+                    if (isset($_GET['id'])) {
+                            $avaliado=$_GET['nome'];
+                            $idAvaliado = $_GET['id'];
+                            echo "<div ><h3>Ralizar o feedback do colaborador ". $avaliado . "</h3>"; 
+                        ?>
+                        <form  method="post">
                             <div>
-                                <label>Começar</label>
-                                <textarea  name="comecar" rows="10" cols="30"></textarea>
-                            </div>
-                            <div>
-                                <label>Parar</label>
-                                <textarea  name="parar" rows="10" cols="30"></textarea>
+                                <div>
+                                    <label>Começar</label>
+                                    <textarea  name="comecar" rows="10" cols="30"></textarea>
+                                </div>
+                                <div>
+                                    <label>Parar</label>
+                                    <textarea  name="parar" rows="10" cols="30"></textarea>
+                                </div>
                                 
+                                <div>
+                                    <label>Continuar</label>
+                                    <textarea  name="continuar" rows="10" cols="30"></textarea>
+                                </div>
                             </div>
-                            
-                            <div>
-                                <label>Continuar</label>
-                                <textarea  name="continuar" rows="10" cols="30"></textarea>
-                            </div>
-                        </div>
-                        <input type="submit" name="enviar" value="Enviar">
-                    </form>
-            <?php } ?>
-        </div>
-        <?php
-            if(isset($_POST['enviar'])){
-                addFeedBack360($connect,$idAvaliado,$idAvaliador);
-            }
-        ?>
-    </section>
+                            <input type="submit" name="enviar" value="Enviar">
+                        </form>
+                <?php } ?>
+            </div>
+            
+        </section>
+        <section>
+            <?php
+                    if(isset($_POST['enviar'])){
+                        $msg=addFeedBack360($connect,$idAvaliado,$idAvaliador);
+                    }
+                ?>
+        </section>
+    </main>
 </body>
 
 </html> 

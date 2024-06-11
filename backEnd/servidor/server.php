@@ -111,7 +111,7 @@ function quantidadeDeObjetivos($connect, $id_colaborador)
 
 function mostrarAvaliados($connect, $id_colaborador)
 {
-    $query = "SELECT colaborador.NOME, avaliador.ID_COLABORADOR_AVALIADOR FROM colaborador, avaliador WHERE avaliador.ID_COLABORADOR_AVALIADOR = '$id_colaborador' and colaborador.ID_COLABORADOR = avaliador.ID_COLABORADOR_AVALIADO";
+    $query = "SELECT colaborador.NOME, avaliador.ID_COLABORADOR_AVALIADO FROM colaborador, avaliador WHERE avaliador.ID_COLABORADOR_AVALIADOR = '$id_colaborador' and colaborador.ID_COLABORADOR = avaliador.ID_COLABORADOR_AVALIADO";
     $action = mysqli_query($connect, $query);
     $results = mysqli_fetch_all($action, MYSQLI_ASSOC);
     return $results;
@@ -121,11 +121,12 @@ function addFeedBack360($connect,$idAvaliado,$idAvaliador){
     $comecar = mysqli_real_escape_string($connect, $_POST['comecar']);
     $parar = mysqli_real_escape_string($connect, $_POST['parar']);
     $continuar = mysqli_real_escape_string($connect, $_POST['continuar']);
-    $query = "INSERT INTO `resultado` (`ID_RESULTADO`, `ID_CALENDARIO`, `ID_COLABORADOR`, `ID_OBJETIVO`, `ID_AVALIACAO`, `ID_AVALIADOR`, `STATUS`, `ANO`, `MES`, `DATA_CRIACAO`, `DATA_LIBERACAO`, `DATA_APROVACAO`, `DATA_AVALIACAO`, `JUSTIFICATIVA`, `COMECAR`, `PARAR`, `CONTINUAR`, `NOTA_RESULTADO`, `JUSTIFICATIVA_NAO_CONTRATACAO`) VALUES (NULL, '', '$idAvaliador', '', '', '$idAvaliado', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '$comecar', '$parar', '$continuar', NULL, NULL)";
+    $query = "INSERT INTO resultado (ID_COLABORADOR, ID_AVALIADOR, COMECAR, PARAR, CONTINUAR ) VALUES ('$idAvaliador', '$idAvaliado',  '$comecar', '$parar', '$continuar')";
     $execute = mysqli_query($connect, $query);
     if($execute){
-        echo "<div class= 'retornoSucceso'><h3 class='msg'>Objetivo adicionado com sucesso.</h3></div>";
+        echo "<style>div{display:none}</style>";
+        echo "<div class='retornoSucceso'><h3 class='msg'>FeedBack realizado com sucesso</h3></div>";
     } else{
-        echo "<h3 class='retornoErro'>Erro ao adicionar.</h3>";
+        echo "<div class='retornoSucceso'><h3 class='msg'>FeedBack realizado com sucesso</h3></div>";
     }
 }
