@@ -11,3 +11,9 @@ Query para ver os meus avaliadores
 SELECT colaborador.NOME, avaliador.ID_COLABORADOR
 FROM colaborador, avaliador
 WHERE avaliador.ID_COLABORADOR = 1 and colaborador.ID_COLABORADOR = avaliador.ID_AVALIADOR;
+
+
+Mostra o status de uma avaliação
+SELECT colaborador.NOME , avaliacao.STATUS, avaliacao.ID_AVALIADOR, avaliacao.ID_COLABORADOR
+FROM colaborador, avaliacao
+WHERE avaliacao.ID_AVALIADOR = 1 and avaliacao.ID_AVALIADOR = colaborador.ID_COLABORADOR;

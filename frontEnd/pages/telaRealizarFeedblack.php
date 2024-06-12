@@ -24,6 +24,7 @@ session_start() ?>
                 </tr>
                 <?php
                 $avaliados = mostrarAvaliados($connect, $_SESSION['id_colaborador']);
+                $status = mostraStatus($connect);
                 foreach ($avaliados as $mostrarAvaliado) {
                     $avaliado = $mostrarAvaliado['NOME'];
                     $idAvaliado = $mostrarAvaliado['ID_COLABORADOR_AVALIADO'];
@@ -42,6 +43,7 @@ session_start() ?>
                     if (isset($_GET['id'])) {
                             $avaliado=$_GET['nome'];
                             $idAvaliado = $_GET['id'];
+                            criaAvaliacao($connect,$idAvaliado,$_SESSION['id_colaborador']);
                             echo "<div ><h3>Ralizar o feedback do colaborador ". $avaliado . "</h3>"; 
                         ?>
                         <form  method="post">

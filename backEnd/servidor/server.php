@@ -130,3 +130,15 @@ function addFeedBack360($connect,$idAvaliado,$idAvaliador){
         echo "<div class='retornoSucceso'><h3 class='msg'>FeedBack realizado com sucesso</h3></div>";
     }
 }
+function mostraStatus($connect){
+    $query = "SELECT colaborador.NOME , avaliacao.STATUS, avaliacao.ID_AVALIADOR, avaliacao.ID_COLABORADOR FROM colaborador, avaliacao WHERE avaliacao.ID_AVALIADOR = 1 and avaliacao.ID_AVALIADOR = colaborador.ID_COLABORADOR";
+    $action = mysqli_query($connect, $query);
+    $results = mysqli_fetch_all($action, MYSQLI_ASSOC);
+    return $results;
+}
+function criaAvaliacao($connect,$idAvaliado,$idColaborador){
+    $status = 1;
+    $tipo= "360";
+    $query = "INSERT INTO avaliacao (ID_COLABORADOR, ID_AVALIADOR, STATUS, TIPO_AVALIACAO) VALUES ('$idAvaliado', '$idColaborador', '$status', '$tipo')";
+    $execute = mysqli_query($connect, $query);
+}
