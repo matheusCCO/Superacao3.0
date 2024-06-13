@@ -145,4 +145,5 @@ function criaAvaliacao($connect,$idAvaliado,$idColaborador){
 }
 function  aualizaStatus($connect,$idAvaliador,$idAvaliado){
     $query = "UPDATE avaliacao SET STATUS = 2 WHERE avaliacao.ID_AVALIADOR = '$idAvaliador' AND avaliacao.ID_COLABORADOR = '$idAvaliado'";
+    $execute = mysqli_query($connect, $query);
 }

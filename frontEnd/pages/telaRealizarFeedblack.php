@@ -32,7 +32,7 @@ session_start() ?>
                 ?>
                     <tr>
                         <td><?php echo $avaliado; ?></td>
-                        <td><?php if($status==1){echo "<img src='../img/atencao.png' alt='Realizar Feedback'>";} else{echo "<img src='../img/confirme.png' alt='Realizar Feedback'>";}?></td>
+                        <td><?php if($status==1){echo "<img src='../img/atencao.png' alt='Realizar Feedback'>";} else{echo "<img src='../img/confirme.png' alt='Feedback realizado'>";}?></td>
                         <td><a href="telaRealizarFeedblack.php?id=<?php echo $idAvaliado;?>&nome=<?php echo $avaliado;?>"> <img src="../img/editar.png" alt="Realizar Feedback"></a></td>
                     </tr>
                 <?php } ?>
