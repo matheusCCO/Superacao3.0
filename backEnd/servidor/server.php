@@ -17,7 +17,7 @@ function login($connect)
             $execute = mysqli_query($connect, $query);
             //retorna array associativo (apenas resultado)
             $result = mysqli_fetch_assoc($execute);
-
+ 
             if (!empty($result['EMAIL'])) {
                 session_start();
                 $_SESSION['id_colaborador'] = $result['ID_COLABORADOR'];
@@ -56,7 +56,7 @@ function solicitaAvaliador($connect, $id_colaborador_avaliado, $departamento, $i
     $query = "INSERT INTO avaliador (ID_COLABORADOR_AVALIADO, DEPARTAMENTO, ID_COLABORADOR_AVALIADOR) VALUES ( ' $id_colaborador_avaliado', '$departamento', '$id_colaborador_avaliador')";
     $execute = mysqli_query($connect, $query);
     if ($execute) {
-        echo "<h2 class='msg'>Usuário inserido com sucesso.</h2>";
+        criaAvaliacao($connect, $id_colaborador_avaliado, $id_colaborador_avaliador);
         header("location: ../../frontEnd/pages/telaEscolerAvaliadores360.php");
     } else {
         echo "<h2 class='msg'>Erro ao inserir.</h2>";
@@ -111,7 +111,7 @@ function quantidadeDeObjetivos($connect, $id_colaborador)
 
 function mostrarAvaliados($connect, $id_colaborador)
 {
-    $query = "SELECT colaborador.NOME, avaliador.ID_COLABORADOR_AVALIADO FROM colaborador, avaliador WHERE avaliador.ID_COLABORADOR_AVALIADOR = '$id_colaborador' and colaborador.ID_COLABORADOR = avaliador.ID_COLABORADOR_AVALIADO";
+    $query = "SELECT colaborador.NOME, avaliador.ID_COLABORADOR_AVALIADO, avaliacao.STATUS FROM colaborador, avaliador, avaliacao WHERE avaliador.ID_COLABORADOR_AVALIADOR = '$id_colaborador' and colaborador.ID_COLABORADOR = avaliador.ID_COLABORADOR_AVALIADO";
     $action = mysqli_query($connect, $query);
     $results = mysqli_fetch_all($action, MYSQLI_ASSOC);
     return $results;
@@ -121,17 +121,18 @@ function addFeedBack360($connect,$idAvaliado,$idAvaliador){
     $comecar = mysqli_real_escape_string($connect, $_POST['comecar']);
     $parar = mysqli_real_escape_string($connect, $_POST['parar']);
     $continuar = mysqli_real_escape_string($connect, $_POST['continuar']);
-    $query = "INSERT INTO resultado (ID_COLABORADOR, ID_AVALIADOR, COMECAR, PARAR, CONTINUAR ) VALUES ('$idAvaliador', '$idAvaliado',  '$comecar', '$parar', '$continuar')";
+    $query = "INSERT INTO resultado (ID_COLABORADOR, ID_AVALIADOR, COMECAR, PARAR, CONTINUAR ) VALUES ('$idAvaliado','$idAvaliador', '$comecar', '$parar', '$continuar')";
     $execute = mysqli_query($connect, $query);
     if($execute){
+        aualizaStatus($connect, $idAvaliador, $idAvaliado);
         echo "<style>div{display:none}</style>";
         echo "<div class='retornoSucceso'><h3 class='msg'>FeedBack realizado com sucesso</h3></div>";
     } else{
         echo "<div class='retornoSucceso'><h3 class='msg'>FeedBack realizado com sucesso</h3></div>";
     }
 }
-function mostraStatus($connect){
-    $query = "SELECT colaborador.NOME , avaliacao.STATUS, avaliacao.ID_AVALIADOR, avaliacao.ID_COLABORADOR FROM colaborador, avaliacao WHERE avaliacao.ID_AVALIADOR = 1 and avaliacao.ID_AVALIADOR = colaborador.ID_COLABORADOR";
+function mostraStatus($connect, $idAvaliador){
+    $query = "SELECT colaborador.NOME , avaliacao.STATUS, avaliacao.ID_AVALIADOR, avaliacao.ID_COLABORADOR FROM colaborador, avaliacao WHERE avaliacao.ID_AVALIADOR = '$idAvaliador' and avaliacao.ID_AVALIADOR = colaborador.ID_COLABORADOR";
     $action = mysqli_query($connect, $query);
     $results = mysqli_fetch_all($action, MYSQLI_ASSOC);
     return $results;
@@ -141,4 +142,7 @@ function criaAvaliacao($connect,$idAvaliado,$idColaborador){
     $tipo= "360";
     $query = "INSERT INTO avaliacao (ID_COLABORADOR, ID_AVALIADOR, STATUS, TIPO_AVALIACAO) VALUES ('$idAvaliado', '$idColaborador', '$status', '$tipo')";
     $execute = mysqli_query($connect, $query);
+}
+function  aualizaStatus($connect,$idAvaliador,$idAvaliado){
+    $query = "UPDATE avaliacao SET STATUS = 2 WHERE avaliacao.ID_AVALIADOR = '$idAvaliador' AND avaliacao.ID_COLABORADOR = '$idAvaliado'";
 }

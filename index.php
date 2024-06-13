@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="frontEnd/style/styleTelaLogin.css">
+    <link rel="website icon" type="png" href="frontend/img/superacao.png">
     <title>Login</title>
 </head>
 <body>

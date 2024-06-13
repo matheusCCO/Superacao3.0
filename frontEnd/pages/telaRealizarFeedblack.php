@@ -24,14 +24,15 @@ session_start() ?>
                 </tr>
                 <?php
                 $avaliados = mostrarAvaliados($connect, $_SESSION['id_colaborador']);
-                $status = mostraStatus($connect);
+                //$status = mostraStatus($connect,$_SESSION['id_colaborador']);
                 foreach ($avaliados as $mostrarAvaliado) {
                     $avaliado = $mostrarAvaliado['NOME'];
                     $idAvaliado = $mostrarAvaliado['ID_COLABORADOR_AVALIADO'];
+                    $status = $mostrarAvaliado['STATUS'];
                 ?>
                     <tr>
                         <td><?php echo $avaliado; ?></td>
-                        <td><img src="../img/atencao.png" alt="Realizar Feedback"></td>
+                        <td><?php if($status==1){echo "<img src='../img/atencao.png' alt='Realizar Feedback'>";} else{echo "<img src='../img/confirme.png' alt='Realizar Feedback'>";}?></td>
                         <td><a href="telaRealizarFeedblack.php?id=<?php echo $idAvaliado;?>&nome=<?php echo $avaliado;?>"> <img src="../img/editar.png" alt="Realizar Feedback"></a></td>
                     </tr>
                 <?php } ?>
@@ -43,7 +44,7 @@ session_start() ?>
                     if (isset($_GET['id'])) {
                             $avaliado=$_GET['nome'];
                             $idAvaliado = $_GET['id'];
-                            criaAvaliacao($connect,$idAvaliado,$_SESSION['id_colaborador']);
+                            //criaAvaliacao($connect,$idAvaliado,$_SESSION['id_colaborador']);
                             echo "<div ><h3>Ralizar o feedback do colaborador ". $avaliado . "</h3>"; 
                         ?>
                         <form  method="post">
