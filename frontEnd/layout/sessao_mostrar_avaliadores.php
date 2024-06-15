@@ -18,4 +18,4 @@
                     echo "<h2>Voce não tem avaliadires selecionados</h2>";
                 } ?>
             </table>             
-</section>
+</section> 

@@ -37,7 +37,9 @@
                 $id_colaborador = $_SESSION['id_colaborador'];
                 addObjetivos($connect, $id_colaborador);
             ?>
-            <?php require "../layout/mostrarMeusObjetivos.php"; ?>
+            <?php require "../layout/mostrar_meus_objetivos.php"; ?>
     </main>
+
+    <?php require "../layout/roda_pe.php"; ?>
 </body>
 </html>

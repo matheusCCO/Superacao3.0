@@ -51,7 +51,7 @@ session_start(); ?>
         </div>
       <?php } ?>
     </main>
-    <?php require "../layout/rodaPe.php"; ?>
+    <?php require "../layout/roda_pe.php"; ?>
 
     <script src="js/collapsible.js"></script>
   <?php } ?>

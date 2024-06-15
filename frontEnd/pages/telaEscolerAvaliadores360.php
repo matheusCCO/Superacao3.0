@@ -1,4 +1,7 @@
-<?php require_once "../../backEnd/servidor/server.php";
+<?php 
+require_once "../../backEnd/utils/fn_busca_avaliadores_360.php";
+require_once "../../backEnd/utils/fn_meus_avaliadores.php";
+require_once "../../backEnd/utils/fn_solicita_avaliador.php";
 session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +19,7 @@ session_start(); ?>
     <?php require "../layout/topo.php"; ?>
 
     <main>
-        <section>
+        <section> 
 
             <h1>Escolher meus avaliadores</h1>
             <div class="divBusca">
@@ -31,12 +34,12 @@ session_start(); ?>
                 </form>
             </div>
         </section>
-        <?php require "../layout/secaoValidaAvaliador.php"; ?>
+        <?php require_once "../layout/sessao_valida_avaliador.php"; ?>
         <?php $resultadoAvaliadores = meusAvaliadores($connect, $_SESSION['id_colaborador']); ?>
-        <?php require "../layout/mostraAvaliadores.php"; ?>
+        <?php require_once "../layout/sessao_mostrar_avaliadores.php"; ?>
     </main>
 
-    <?php require "../layout/rodaPe.php"; ?>
+    <?php require "../layout/roda_pe.php"; ?>
 </body>
 
 </html>
