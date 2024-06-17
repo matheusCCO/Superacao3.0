@@ -25,4 +25,7 @@ session_start() ?>
     </main>
 </body>
 
+
+<?php require "../layout/roda_pe.php"; ?>
+
 </html>

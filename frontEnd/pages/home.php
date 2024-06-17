@@ -1,4 +1,4 @@
-<?php require_once "../../backEnd/servidor/server.php";
+<?php require_once "../../backEnd/utils/mostrar_minhas_avaliacoes.php";
 session_start(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,43 +13,40 @@ session_start(); ?>
 </head>
 
 <body>
-  <?php if (isset($_SESSION['ativa'])) { ?>
-    <?php require "../layout/topo.php";
-    ?>
+  <?php if (isset($_SESSION['ativa'])) {
+    require "../layout/topo.php";
+    $minhas_avaliacoes = mostrar_minhas_avaliacoes($connect, $_SESSION['id_colaborador']);
+    $date = date("Y");
+  ?>
     <main>
       <h1>FeedBack 360:</h1>
-      <?php $ciclos = array(1, 2, 3, 4);
-      foreach ($ciclos as $ciclo) { ?>
-        <button type="button" class="collapsible"><?php echo "202" . $ciclo; ?></button>
-        <div class="content">
-          <table>
+      <button type="button" class="collapsible"><?php echo $date; ?></button>
+      <div class="content">
+        <table>
+          <tr>
+            <th>Avaliador</th>
+            <th>Começar</th>
+            <th>Parar</th>
+            <th>Continuar</th>
+          </tr>
+          <?php
+          foreach ($minhas_avaliacoes as $avaliacoes) {
+            $nome = $avaliacoes['NOME'];
+            $comecar = $avaliacoes['COMECAR'];
+            $para = $avaliacoes['PARAR'];
+            $continuar = $avaliacoes['CONTINUAR'];
+          ?>
             <tr>
-              <th>Avaliador</th>
-              <th>Começar</th>
-              <th>Parar</th>
-              <th>Continuar</th>
+              <td><?php echo $nome; ?></td>
+              <td><?php echo $comecar; ?></td>
+              <td><?php echo $para; ?></td>
+              <td><?php echo $continuar; ?></td>
             </tr>
-            <tr>
-              <td>Jill</td>
-              <td>Ver chamados</td>
-              <td>Qualquer coisa</td>
-              <td>Falandoi</td>
-            </tr>
-            <tr>
-              <td>Eve</td>
-              <td>Ver chamados</td>
-              <td>Qualquer coisa</td>
-              <td>Falandoi</td>
-            </tr>
-            <tr>
-              <td>Adam</td>
-              <td>Ver chamados</td>
-              <td>Qualquer coisa</td>
-              <td>Falandoi</td>
-            </tr>
-          </table>
-        </div>
-      <?php } ?>
+
+
+          <?php } ?>
+        </table>
+      </div>
     </main>
     <?php require "../layout/roda_pe.php"; ?>
 
