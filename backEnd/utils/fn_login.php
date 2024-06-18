@@ -17,7 +17,12 @@ function login($connect)
                 $_SESSION['nome'] = $result['NOME'];
                 $_SESSION['email'] = $result['EMAIL'];
                 $_SESSION['ativa'] = true;
-                header("location: frontEnd/pages/home.php");
+                $_SESSION['perfil'] = $result['PERFIL'];
+                if($_SESSION['perfil'] == 1 || $_SESSION['perfil'] == null){
+                    header("location: frontEnd/pages/home.php");
+                } else{
+                    header("location: frontEnd/pages/home_gestor.php");
+                }
             } else {
                 echo "<p>Email ou senha não encontrados</p>";
             }
@@ -26,10 +31,5 @@ function login($connect)
         }
     }
 }
-
-
-
-
-
 
 ?>

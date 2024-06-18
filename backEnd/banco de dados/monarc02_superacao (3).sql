@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/06/2024 às 16:02
+-- Tempo de geração: 18/06/2024 às 20:38
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -38,18 +38,6 @@ CREATE TABLE `avaliacao` (
   `TIPO_AVALIACAO` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Despejando dados para a tabela `avaliacao`
---
-
-INSERT INTO `avaliacao` (`ID_AVALIACAO`, `ID_COLABORADOR_AVALIADO`, `ID_COLABORADOR_AVALIADOR`, `NOTA`, `DATA_AVALIACAO`, `STATUS`, `OBSERVACAO`, `TIPO_AVALIACAO`) VALUES
-(1, 1, 2, NULL, NULL, 1, NULL, NULL),
-(2, 3, 2, NULL, NULL, 1, NULL, NULL),
-(3, 3, 4, NULL, NULL, 1, NULL, NULL),
-(4, 1, 4, NULL, NULL, 1, NULL, NULL),
-(5, 1, 3, NULL, NULL, 1, NULL, NULL),
-(6, 2, 1, NULL, NULL, 2, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -74,10 +62,10 @@ CREATE TABLE `colaborador` (
 --
 
 INSERT INTO `colaborador` (`ID_COLABORADOR`, `NOME`, `FUNCAO`, `DEPARTAMENTO`, `CHEFIA`, `PERFIL`, `DATA_ADMISSAO`, `STATUS_COLABORADOR`, `SENHA`, `EMAIL`) VALUES
-(1, 'Matheus Bandeira', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', NULL, NULL, NULL, NULL, 'teste@123', 'matheus@teste.com'),
-(2, 'Lucas Beccon', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', NULL, NULL, NULL, NULL, 'teste@123', 'lucas@teste.com'),
-(3, 'Marcelo Leal', 'SUPERVISOR II', 'Gestao - Ti Servicos', NULL, NULL, NULL, NULL, 'teste@123', 'marcelo@teste.com'),
-(4, 'Douglas Otto', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', NULL, NULL, NULL, NULL, 'teste@123', 'douglas@teste.com');
+(1, 'Matheus Bandeira', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', 'Alexandre Preto', 2, NULL, NULL, 'teste@123', 'matheus@teste.com'),
+(2, 'Lucas Beccon', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', 'Matheus Bandeira', 1, NULL, NULL, 'teste@123', 'lucas@teste.com'),
+(3, 'Marcelo Leal', 'SUPERVISOR II', 'Gestao - Ti Servicos', 'Matheus Bandeira', 1, NULL, NULL, 'teste@123', 'marcelo@teste.com'),
+(4, 'Douglas Otto', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', 'Matheus Bandeira', 1, NULL, NULL, 'teste@123', 'douglas@teste.com');
 
 -- --------------------------------------------------------
 
@@ -128,13 +116,6 @@ CREATE TABLE `resultado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Despejando dados para a tabela `resultado`
---
-
-INSERT INTO `resultado` (`ID_RESULTADO`, `ID_COLABORADOR_AVALIADO`, `ID_OBJETIVO`, `ID_COLABORADOR_AVALIADOR`, `STATUS`, `ANO`, `MES`, `DATA_CRIACAO`, `DATA_LIBERACAO`, `DATA_APROVACAO`, `DATA_AVALIACAO`, `JUSTIFICATIVA`, `COMECAR`, `PARAR`, `CONTINUAR`, `NOTA_RESULTADO`, `JUSTIFICATIVA_NAO_CONTRATACAO`, `ID_AVALIACAO`) VALUES
-(4, 2, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'asd', 'asd', 'asd', NULL, NULL, 6);
-
---
 -- Índices para tabelas despejadas
 --
 
@@ -178,7 +159,7 @@ ALTER TABLE `resultado`
 -- AUTO_INCREMENT de tabela `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  MODIFY `ID_AVALIACAO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_AVALIACAO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `colaborador`
