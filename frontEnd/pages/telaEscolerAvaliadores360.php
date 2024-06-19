@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "../../backEnd/utils/fn_busca_avaliadores_360.php";
 require_once "../../backEnd/utils/fn_meus_avaliadores.php";
 require_once "../../backEnd/utils/fn_solicita_avaliador.php";
@@ -16,29 +16,38 @@ session_start(); ?>
 
 <body>
 
-    <?php require "../layout/topo.php"; ?>
+    <?php
+    if (isset($_SESSION['ativa'])) {
+        if ($_SESSION['perfil'] == '2') {
+            require "../layout/topo_gestor.php";
+        } else {
+            require "../layout/topo.php";
+        } ?>
+        <main>
+            <section>
 
-    <main>
-        <section> 
+                <h1>Escolher meus avaliadores</h1>
+                <div class="divBusca">
+                    <form method="GET">
+                        <div class="div-input">
+                            <input class="btn-input" type="name" name="nome" placeholder="Avaliador">
+                        </div>
 
-            <h1>Escolher meus avaliadores</h1>
-            <div class="divBusca">
-                <form method="GET">
-                    <div class="div-input">
-                        <input class="btn-input" type="name" name="nome" placeholder="Avaliador">
-                    </div>
+                        <div class="div-submit">
+                            <input class="btn" type="submit" name="buscaAvaliador360" value="Buscar Avaliador">
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <?php require_once "../layout/sessao_valida_avaliador.php";  ?>
 
-                    <div class="div-submit">
-                        <input class="btn" type="submit" name="buscaAvaliador360" value="Buscar Avaliador">
-                    </div>
-                </form>
-            </div>
-        </section>
-        <?php require_once "../layout/sessao_valida_avaliador.php"; ?>
-        <?php $resultadoAvaliadores = meusAvaliadores($connect, $_SESSION['id_colaborador']); ?>
-        <?php require_once "../layout/sessao_mostrar_avaliadores.php"; ?>
-    </main>
+            <?php $resultadoAvaliadores = meusAvaliadores($connect, $_SESSION['id_colaborador']); ?>
 
+            <?php require_once "../layout/sessao_mostrar_avaliadores.php"; ?>
+        </main>
+    <?php } else {
+        header("location: ../../index.php");
+    } ?>
     <?php require "../layout/roda_pe.php"; ?>
 </body>
 

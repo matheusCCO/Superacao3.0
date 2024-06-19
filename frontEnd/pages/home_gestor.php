@@ -15,7 +15,12 @@ session_start(); ?>
 <body>
 
     <?php if (isset($_SESSION['ativa'])) {
-        require "../layout/topo_gestor.php";
+        if($_SESSION['perfil']=='2'){
+            require "../layout/topo_gestor.php";
+        } else{
+            require "../layout/topo.php";
+        }
+        
         $minhas_avaliacoes = mostrar_minhas_avaliacoes($connect, $_SESSION['id_colaborador']);
         $date = date("Y");
     ?>

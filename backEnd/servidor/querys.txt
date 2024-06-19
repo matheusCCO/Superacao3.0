@@ -17,3 +17,8 @@ Mostra o status de uma avaliação
 SELECT colaborador.NOME , avaliacao.STATUS, avaliacao.ID_AVALIADOR, avaliacao.ID_COLABORADOR
 FROM colaborador, avaliacao
 WHERE avaliacao.ID_AVALIADOR = 1 and avaliacao.ID_AVALIADOR = colaborador.ID_COLABORADOR;
+
+
+
+Ver os abjetivas de um colaborador
+SELECT colaborador.NOME, objetivo.NOME_OBJETIVO, objetivo.DESCRICAO_OBJETIVO FROM colaborador, objetivo WHERE colaborador.ID_COLABORADOR = objetivo.ID_COLABORADOR and colaborador.ID_COLABORADOR = 2;

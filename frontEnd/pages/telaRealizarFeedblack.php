@@ -14,18 +14,26 @@ session_start() ?>
 </head>
 
 <body>
-    <?php require "../layout/topo.php";
-    $idAvaliador = $_SESSION['id_colaborador'] ?>
-    <main>
-        <?php require_once "../layout/sessao_mostrar_avaliados.php"; ?>
+    <?php
+    if (isset($_SESSION['ativa'])) {
+        $idAvaliador = $_SESSION['id_colaborador'];
+        if ($_SESSION['perfil']) {
+            require "../layout/topo_gestor.php";
+        } else {
+            require "../layout/topo.php";
+        } ?>
+        <main>
+            <?php require_once "../layout/sessao_mostrar_avaliados.php"; ?>
 
-        <?php require_once "../layout/sessao_mostrar_formulario_feedback_360.php"; ?>
+            <?php require_once "../layout/sessao_mostrar_formulario_feedback_360.php"; ?>
 
-        <?php require_once "../layout/sessao_envia_feedback.php"; ?>
-    </main>
+            <?php require_once "../layout/sessao_envia_feedback.php"; ?>
+        </main>
 </body>
 
-
+<?php } else {
+        header("location: ../../index.php");
+    } ?>
 <?php require "../layout/roda_pe.php"; ?>
 
 </html>
