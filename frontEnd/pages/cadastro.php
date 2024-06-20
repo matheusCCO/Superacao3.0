@@ -29,7 +29,6 @@
                         <option value="2">Gestor</option>
                     </select>
                     <input type="email" name="email" placeholder="E-mail">
-                    <input type="password" name="senha" placeholder="Senha">
                 </div>
 
                 <div class="div-submit">
