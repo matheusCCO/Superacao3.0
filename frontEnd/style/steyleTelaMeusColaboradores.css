@@ -1,80 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: "Libre Franklin";
+  font-family: "Libre Franklin";
 }
 
 a {
-    font-family: "Libre Franklin";
-    color: #fff;
-    text-decoration: none;
-    transition: 0.3s;
+  font-family: "Libre Franklin";
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 a:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .logo {
-    font-family: "Libre Franklin";
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  font-family: "Libre Franklin";
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-    background: #23232e;
-    height: 8vh;
-    width: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #23232e;
+  height: 8vh;
+  width: auto;
 }
 
 ul {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 
 ul li {
-    letter-spacing: 1px;
-    margin-left: 32px;
+  letter-spacing: 1px;
+  margin-left: 32px;
 }
-main{
-    display: flex;
-    flex-direction: column;
-}
-
-section{
-    width: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-}
-table{
-    border-collapse: collapse;
-    width: 50%;
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-th, td{
-    text-align: center;
-    padding: 8px;
+section {
+  width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
 }
-tr:nth-child(even){background-color: #f2f2f2}
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 th {
-    background-color: #23232e;
-    color: white;
-  }
+  background-color: #23232e;
+  color: white;
+}
 
-img{
-    width: 30px;
-    height: 30px;
+img {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-novo {
+  font-family: "Libre Franklin";
+  background-color: #23232e;
+  color: #fff;
+  width: 150px;
+  height: 50px;
+  margin-top: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
 }

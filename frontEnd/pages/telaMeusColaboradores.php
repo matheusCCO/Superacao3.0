@@ -18,6 +18,9 @@ session_start(); ?>
     require "../layout/topo_gestor.php"; ?>
     <main>
         <?php require "../layout/sessao_mostrar_meus_colaboradores.php"; ?>
+
+
+        <a class="btn-novo" href="cadastro.php">Novo Colaborador</a>
     </main>
 
 </body>
