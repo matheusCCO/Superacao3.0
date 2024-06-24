@@ -13,8 +13,8 @@
         ?>
             <tr>
                 <td><?php echo $colaborador ?></td>
-                <td> <a href="telaObjetivos.php?id=<?php echo $idColaborador; ?>"><img src='../img/objetivo.png' title="Objetivos" alt='Realizar Feedback'></a></td>
-                <td> Objetivos</td>
+                <td> <a href="telaObjetivos.php?id=<?php echo $idColaborador; ?>"> <img src='../img/objetivo.png' title="Objetivos" alt='Ver objetivos'></a></td>
+                <td> <a href="telaRealizaFeedBackMeuColaborador.php?id=<?php echo $idColaborador; ?>&nome=<?php echo $colaborador; ?>"> <img src="../img/editar.png" alt="" title="Realizar feedBack"></a></td>
 
             </tr>
         <?php } ?>

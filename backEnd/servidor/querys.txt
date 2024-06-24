@@ -22,3 +22,7 @@ WHERE avaliacao.ID_AVALIADOR = 1 and avaliacao.ID_AVALIADOR = colaborador.ID_COL
 
 Ver os abjetivas de um colaborador
 SELECT colaborador.NOME, objetivo.NOME_OBJETIVO, objetivo.DESCRICAO_OBJETIVO FROM colaborador, objetivo WHERE colaborador.ID_COLABORADOR = objetivo.ID_COLABORADOR and colaborador.ID_COLABORADOR = 2;
+
+
+pega ID_ avaliacao
+SELECT avaliacao.ID_AVALIACAO FROM `avaliacao` WHERE avaliacao.TIPO_AVALIACAO = "Gestor" and avaliacao.ID_COLABORADOR_AVALIADO = 2 and avaliacao.ID_COLABORADOR_AVALIADOR = 1;

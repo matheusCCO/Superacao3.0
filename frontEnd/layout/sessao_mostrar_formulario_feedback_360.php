@@ -24,6 +24,6 @@
                 <input type="submit" name="enviar" value="Enviar">
             </form>
         <?php } ?>
-    </div>d
+    </div>
 
 </section>
