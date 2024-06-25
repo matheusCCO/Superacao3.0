@@ -17,7 +17,7 @@ require_once "../../backEnd/utils/fn_mostra_meus_objetivos.php";
 <body>
     <?php
     if (isset($_SESSION['ativa'])) {
-        if ($_SESSION['perfil']) {
+        if ($_SESSION['perfil'] == 2) {
             require "../layout/topo_gestor.php";
         } else {
             require "../layout/topo.php";

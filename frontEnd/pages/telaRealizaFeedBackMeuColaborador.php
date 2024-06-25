@@ -29,12 +29,13 @@ require_once('../../backend/utils/fn_avaliacao_gestor.php') ?>
                     <input class="btn" type="submit" value="Enviar" name="enviar">
                 </form>
             </section>
-        </main>
-    <?php if (isset($_POST['enviar'])) {
+        <?php if (isset($_POST['enviar'])) {
 
             avaliacao_gestor($connect, $_GET['id'], $_SESSION['id_colaborador']);
         }
     } ?>
+        </main>
+
 </body>
 
 </html>

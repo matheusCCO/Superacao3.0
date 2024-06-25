@@ -17,7 +17,7 @@ session_start() ?>
     <?php
     if (isset($_SESSION['ativa'])) {
         $idAvaliador = $_SESSION['id_colaborador'];
-        if ($_SESSION['perfil']) {
+        if ($_SESSION['perfil'] == 2) {
             require "../layout/topo_gestor.php";
         } else {
             require "../layout/topo.php";

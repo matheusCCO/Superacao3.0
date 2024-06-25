@@ -1,4 +1,6 @@
 <?php require_once "../../backEnd/utils/mostrar_minhas_avaliacoes.php";
+require_once "../../backEnd/utils/mostrar_avaliacao_gestor.php";
+
 session_start(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,44 +16,29 @@ session_start(); ?>
 
 <body>
   <?php if (isset($_SESSION['ativa'])) {
-    require "../layout/topo.php";
+    if ($_SESSION['perfil'] == '2') {
+      require "../layout/topo_gestor.php";
+    } else {
+      require "../layout/topo.php";
+    }
+
     $minhas_avaliacoes = mostrar_minhas_avaliacoes($connect, $_SESSION['id_colaborador']);
+    $avaliacao_gestor = mostrar_avaliacao_gestor($connect, $_SESSION['id_colaborador']);
     $date = date("Y");
   ?>
     <main>
-      <h1>FeedBack 360:</h1>
-      <button type="button" class="collapsible"><?php echo $date; ?></button>
-      <div class="content">
-        <table>
-          <tr>
-            <th>Avaliador</th>
-            <th>Começar</th>
-            <th>Parar</th>
-            <th>Continuar</th>
-          </tr>
-          <?php
-          foreach ($minhas_avaliacoes as $avaliacoes) {
-            $nome = $avaliacoes['NOME'];
-            $comecar = $avaliacoes['COMECAR'];
-            $para = $avaliacoes['PARAR'];
-            $continuar = $avaliacoes['CONTINUAR'];
-          ?>
-            <tr>
-              <td><?php echo $nome; ?></td>
-              <td><?php echo $comecar; ?></td>
-              <td><?php echo $para; ?></td>
-              <td><?php echo $continuar; ?></td>
-            </tr>
 
+      <?php require "../layout/sessao_mostra_avaliacao_360.php"; ?>
+      <div></div>
+      <?php require "../layout/sessao_mostra_avaliacao_gestor.php"; ?>
 
-          <?php } ?>
-        </table>
-      </div>
     </main>
-    <?php require "../layout/roda_pe.php"; ?>
+
 
     <script src="js/collapsible.js"></script>
+
   <?php } ?>
+  <?php require "../layout/roda_pe.php"; ?>
 </body>
 
 </html>

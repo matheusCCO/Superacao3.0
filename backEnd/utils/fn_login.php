@@ -10,7 +10,7 @@ function login($connect)
             $execute = mysqli_query($connect, $query);
             //retorna array associativo (apenas resultado)
             $result = mysqli_fetch_assoc($execute);
- 
+
             if (!empty($result['EMAIL'])) {
                 session_start();
                 $_SESSION['id_colaborador'] = $result['ID_COLABORADOR'];
@@ -18,11 +18,7 @@ function login($connect)
                 $_SESSION['email'] = $result['EMAIL'];
                 $_SESSION['ativa'] = true;
                 $_SESSION['perfil'] = $result['PERFIL'];
-                if($_SESSION['perfil'] == 1 || $_SESSION['perfil'] == null){
-                    header("location: frontEnd/pages/home.php");
-                } else{
-                    header("location: frontEnd/pages/home_gestor.php");
-                }
+                header("location: frontEnd/pages/home.php");
             } else {
                 echo "<p>Email ou senha não encontrados</p>";
             }
@@ -31,5 +27,3 @@ function login($connect)
         }
     }
 }
-
-?>
