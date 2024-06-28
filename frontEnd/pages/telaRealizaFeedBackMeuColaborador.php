@@ -33,6 +33,8 @@ require_once('../../backend/utils/fn_avaliacao_gestor.php') ?>
 
             avaliacao_gestor($connect, $_GET['id'], $_SESSION['id_colaborador']);
         }
+    } else {
+        header("location: ../../index.php");
     } ?>
         </main>
 

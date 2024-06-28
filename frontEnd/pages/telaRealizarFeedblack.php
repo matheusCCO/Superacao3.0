@@ -29,11 +29,13 @@ session_start() ?>
 
             <?php require_once "../layout/sessao_envia_feedback.php"; ?>
         </main>
+
+        <?php require "../layout/roda_pe.php"; ?>
 </body>
 
 <?php } else {
         header("location: ../../index.php");
     } ?>
-<?php require "../layout/roda_pe.php"; ?>
+
 
 </html>

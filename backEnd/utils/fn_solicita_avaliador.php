@@ -2,7 +2,7 @@
 function solicitaAvaliador($connect, $id_colaborador_avaliado, $id_colaborador_avaliador)
 {
 
-    $query = "INSERT INTO avaliacao (ID_COLABORADOR_AVALIADO, ID_COLABORADOR_AVALIADOR, STATUS, TIPO_Avaliacao) VALUES ( ' $id_colaborador_avaliado','$id_colaborador_avaliador', 1, '360')";
+    $query = "INSERT INTO avaliacao (ID_COLABORADOR_AVALIADO, ID_COLABORADOR_AVALIADOR, STATUS, TIPO_AVALIACAO) VALUES ( ' $id_colaborador_avaliado','$id_colaborador_avaliador', 1, '360')";
     $execute = mysqli_query($connect, $query);
     if ($execute) {
         //criaAvaliacao($connect, $id_colaborador_avaliado, $id_colaborador_avaliador);

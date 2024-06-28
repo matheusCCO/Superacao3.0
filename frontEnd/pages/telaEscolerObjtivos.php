@@ -49,8 +49,11 @@ require_once "../../backEnd/utils/fn_mostra_meus_objetivos.php";
             ?>
             <?php require "../layout/mostrar_meus_objetivos.php"; ?>
         </main>
-    <?php } ?>
-    <?php require "../layout/roda_pe.php"; ?>
+        <?php require "../layout/roda_pe.php"; ?>
+    <?php } else {
+        header("location: ../../index.php");
+    } ?>
+
 </body>
 
 </html>

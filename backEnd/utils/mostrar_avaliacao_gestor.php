@@ -7,11 +7,5 @@ function mostrar_avaliacao_gestor($connect, $idColaborador)
     $execute = mysqli_query($connect, $query);
     $resultado = mysqli_fetch_all($execute, MYSQLI_ASSOC);
 
-    if (isset($resultado)) {
-        echo "erro";
-        if (empty($resultado)) {
-            echo "erro2";
-        }
-    }
     return $resultado;
 }

@@ -1,4 +1,5 @@
-<?php require_once("../../backEnd/utils/fn_cadastro_colaborador.php"); ?>
+<?php session_start();
+require_once("../../backEnd/utils/fn_cadastro_colaborador.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,34 +12,38 @@
 <?php require "../layout/topo_gestor.php"; ?>
 
 <body>
-    <main>
+    <?php if (isset($_SESSION['ativa'])) { ?>
+        <main>
 
-        <div class="divLogin">
-            <h1>SUPERAÇÃO 3.0</h1>
+            <div class="divLogin">
+                <h1>SUPERAÇÃO 3.0</h1>
 
-            <form method="POST">
-                <div class="div-input">
-                    <input type="text" name="nome" placeholder="Nome Completo">
-                    <input type="text" name="funcao" placeholder="Função">
-                    <input type="text" name="departamento" placeholder="Departamento">
-                    <input type="text" name="chefia" placeholder="Chefia">
-                    <label>Perfil: </label>
-                    <select name="perfil" placeholder="Perfil">
-                        <option value=" "></option>
-                        <option value="1">Colaborador</option>
-                        <option value="2">Gestor</option>
-                    </select>
-                    <input type="email" name="email" placeholder="E-mail">
-                </div>
+                <form method="POST">
+                    <div class="div-input">
+                        <input type="text" name="nome" placeholder="Nome Completo">
+                        <input type="text" name="funcao" placeholder="Função">
+                        <input type="text" name="departamento" placeholder="Departamento">
+                        <input type="text" name="chefia" placeholder="Chefia">
+                        <label>Perfil: </label>
+                        <select name="perfil" placeholder="Perfil">
+                            <option value=" "></option>
+                            <option value="1">Colaborador</option>
+                            <option value="2">Gestor</option>
+                        </select>
+                        <input type="email" name="email" placeholder="E-mail">
+                    </div>
 
-                <div class="div-submit">
-                    <input type="submit" name="cadastrar" value="Cadastrar">
-                </div>
-            </form>
-            <?php cadastrar_colaborador($connect);
-            ?>
-        </div>
-    </main>
+                    <div class="div-submit">
+                        <input type="submit" name="cadastrar" value="Cadastrar">
+                    </div>
+                </form>
+                <?php cadastrar_colaborador($connect);
+                ?>
+            </div>
+        </main>
+    <?php } else {
+        header("location: ../../index.php");
+    } ?>
 </body>
 
 </html>

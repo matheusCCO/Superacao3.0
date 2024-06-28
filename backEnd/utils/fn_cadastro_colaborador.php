@@ -13,7 +13,7 @@ function cadastrar_colaborador($connect)
         $perfil = $_POST['email'];
         $senha = "teste@123";
         $dataAdinicao = date("d/m/Y");
-        if (!empty($nome) and !empty($funcao) and !empty($departamento) and !empty($chefia) and !empty($email)) {
+        if (!empty($nome) and !empty($funcao) and !empty($departamento) and !empty($chefia) and !empty($email) and !empty($perfil)) {
             $query = "INSERT INTO colaborador (NOME, FUNCAO, DEPARTAMENTO, CHEFIA, PERFIL, DATA_ADMISSAO, SENHA, EMAIL) VALUES ('$nome', '$funcao', '$departamento', '$chefia', '$perfil','$dataAdinicao', '$senha', '$email')";
             $execute = mysqli_query($connect, $query);
             if ($execute) {

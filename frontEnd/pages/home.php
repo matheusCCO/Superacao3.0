@@ -1,7 +1,8 @@
 <?php require_once "../../backEnd/utils/mostrar_minhas_avaliacoes.php";
 require_once "../../backEnd/utils/mostrar_avaliacao_gestor.php";
 
-session_start(); ?>
+session_start();
+session_regenerate_id(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -37,8 +38,12 @@ session_start(); ?>
 
     <script src="js/collapsible.js"></script>
 
-  <?php } ?>
-  <?php require "../layout/roda_pe.php"; ?>
+    <?php require "../layout/roda_pe.php"; ?>
+
+  <?php } else {
+    header("location: ../../index.php");
+  } ?>
+
 </body>
 
 </html>
