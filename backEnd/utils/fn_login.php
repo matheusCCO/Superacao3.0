@@ -18,6 +18,7 @@ function login($connect)
                 $_SESSION['email'] = $result['EMAIL'];
                 $_SESSION['ativa'] = true;
                 $_SESSION['perfil'] = $result['PERFIL'];
+                $_SESSION['chefia'] = $result['CHEFIA'];
                 header("location: frontEnd/pages/home.php");
             } else {
                 echo "<p>Email ou senha não encontrados</p>";

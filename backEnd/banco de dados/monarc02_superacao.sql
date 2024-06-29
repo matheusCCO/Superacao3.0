@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18/06/2024 às 20:38
+-- Tempo de geração: 29/06/2024 às 19:27
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -31,7 +31,7 @@ CREATE TABLE `avaliacao` (
   `ID_AVALIACAO` int(11) NOT NULL,
   `ID_COLABORADOR_AVALIADO` int(11) NOT NULL,
   `ID_COLABORADOR_AVALIADOR` int(11) NOT NULL,
-  `NOTA` decimal(2,2) DEFAULT NULL,
+  `NOTA` float DEFAULT NULL,
   `DATA_AVALIACAO` datetime DEFAULT NULL,
   `STATUS` int(11) DEFAULT NULL,
   `OBSERVACAO` varchar(4000) DEFAULT NULL,
@@ -57,16 +57,6 @@ CREATE TABLE `colaborador` (
   `EMAIL` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Despejando dados para a tabela `colaborador`
---
-
-INSERT INTO `colaborador` (`ID_COLABORADOR`, `NOME`, `FUNCAO`, `DEPARTAMENTO`, `CHEFIA`, `PERFIL`, `DATA_ADMISSAO`, `STATUS_COLABORADOR`, `SENHA`, `EMAIL`) VALUES
-(1, 'Matheus Bandeira', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', 'Alexandre Preto', 2, NULL, NULL, 'teste@123', 'matheus@teste.com'),
-(2, 'Lucas Beccon', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', 'Matheus Bandeira', 1, NULL, NULL, 'teste@123', 'lucas@teste.com'),
-(3, 'Marcelo Leal', 'SUPERVISOR II', 'Gestao - Ti Servicos', 'Matheus Bandeira', 1, NULL, NULL, 'teste@123', 'marcelo@teste.com'),
-(4, 'Douglas Otto', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', 'Matheus Bandeira', 1, NULL, NULL, 'teste@123', 'douglas@teste.com');
-
 -- --------------------------------------------------------
 
 --
@@ -80,13 +70,6 @@ CREATE TABLE `objetivo` (
   `NOME_OBJETIVO` varchar(100) DEFAULT NULL,
   `PESO` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Despejando dados para a tabela `objetivo`
---
-
-INSERT INTO `objetivo` (`ID_OBJETIVO`, `DESCRICAO_OBJETIVO`, `ID_COLABORADOR`, `NOME_OBJETIVO`, `PESO`) VALUES
-(1, 'asd', 1, 'asdas', 12);
 
 -- --------------------------------------------------------
 
@@ -159,25 +142,25 @@ ALTER TABLE `resultado`
 -- AUTO_INCREMENT de tabela `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  MODIFY `ID_AVALIACAO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID_AVALIACAO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de tabela `colaborador`
 --
 ALTER TABLE `colaborador`
-  MODIFY `ID_COLABORADOR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_COLABORADOR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `objetivo`
 --
 ALTER TABLE `objetivo`
-  MODIFY `ID_OBJETIVO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_OBJETIVO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `resultado`
 --
 ALTER TABLE `resultado`
-  MODIFY `ID_RESULTADO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_RESULTADO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restrições para tabelas despejadas

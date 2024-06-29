@@ -29,7 +29,8 @@ session_regenerate_id(); ?>
   ?>
     <main>
 
-      <?php require "../layout/sessao_mostra_avaliacao_360.php"; ?>
+      <?php echo $_SESSION['nome'];
+      require "../layout/sessao_mostra_avaliacao_360.php"; ?>
       <div></div>
       <?php require "../layout/sessao_mostra_avaliacao_gestor.php"; ?>
 

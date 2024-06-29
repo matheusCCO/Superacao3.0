@@ -1,7 +1,7 @@
 <section>
     <div>
         <?php
-        $resultadoDaBusca = buscaAvaliador360($connect);
+        $resultadoDaBusca = buscaAvaliador360($connect, $_SESSION['nome'], $_SESSION['chefia']);
         if (isset($resultadoDaBusca)) {
             echo "<p>Nome: " . $resultadoDaBusca["NOME"] . "</p>";
             echo "<p>E-mail: " . $resultadoDaBusca["EMAIL"] . "</p>";

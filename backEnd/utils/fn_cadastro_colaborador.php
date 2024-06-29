@@ -5,12 +5,12 @@ require_once("db_connect.php");
 function cadastrar_colaborador($connect)
 {
     if (isset($_POST['cadastrar'])) {
-        $nome = mysqli_real_escape_string($connect, $_POST['nome']);
-        $funcao = mysqli_real_escape_string($connect, $_POST['funcao']);
-        $departamento = mysqli_real_escape_string($connect, $_POST['departamento']);
-        $chefia = mysqli_real_escape_string($connect, $_POST['chefia']);
+        $nome = ucwords(mysqli_real_escape_string($connect, $_POST['nome']));
+        $funcao = ucwords(mysqli_real_escape_string($connect, $_POST['funcao']));
+        $departamento = ucwords(mysqli_real_escape_string($connect, $_POST['departamento']));
+        $chefia = ucwords(mysqli_real_escape_string($connect, $_POST['chefia']));
         $email = mysqli_real_escape_string($connect, $_POST['email']);
-        $perfil = $_POST['email'];
+        $perfil = $_POST['perfil'];
         $senha = "teste@123";
         $dataAdinicao = date("d/m/Y");
         if (!empty($nome) and !empty($funcao) and !empty($departamento) and !empty($chefia) and !empty($email) and !empty($perfil)) {
