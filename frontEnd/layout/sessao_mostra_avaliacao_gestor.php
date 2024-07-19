@@ -5,7 +5,7 @@
 
         <?php
         if (empty($avaliacao_gestor)) {
-            echo "<h2>Sua avaliaçao nao foi realizada ainda</h2>";
+            echo "<h2>Sua avaliação não foi realizada ainda</h2>";
         } else {
 
             foreach ($avaliacao_gestor as $avaliacoes) {

@@ -21,7 +21,7 @@ require_once('../../backend/utils/fn_avaliacao_gestor.php') ?>
                 <form method="post">
                     <div>
                         <label>Nota: </label>
-                        <input class="input-number" type="number" value="Enviar" name="nota" step=".01" min="0" max="5">
+                        <input class="input-number" type="text" name="nota" step=".01" min="0" max="5">
                     </div>
 
                     <textarea name="avaliacao" id="" cols="70" rows="20"></textarea>
