@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29/06/2024 às 19:27
+-- Tempo de geração: 19/07/2024 às 19:16
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -57,6 +57,19 @@ CREATE TABLE `colaborador` (
   `EMAIL` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Despejando dados para a tabela `colaborador`
+--
+
+INSERT INTO `colaborador` (`ID_COLABORADOR`, `NOME`, `FUNCAO`, `DEPARTAMENTO`, `CHEFIA`, `PERFIL`, `DATA_ADMISSAO`, `STATUS_COLABORADOR`, `SENHA`, `EMAIL`) VALUES
+(8, 'Matheus Bandeira', 'SUPERVISOR II', 'Gestao - Ti Servicos', 'Alexandre Preto', 2, '2024-07-17 10:22:39', NULL, 'teste@123', 'matheus@teste.com'),
+(10, 'Bruna Antonio', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', 'Matheus Bandeira', 1, '2024-07-19 10:08:20', NULL, 'teste@123', 'bruna@teste.com'),
+(11, 'Douglas Otto', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', 'Matheus Bandeira', 1, '2024-06-10 09:46:46', NULL, 'teste@123', 'douglas@teste.com'),
+(12, 'Alexandre Preto', 'COORDENADOR II', 'Gestao - Ti Servicos', 'Rhadam Miranda', 2, '2024-07-19 10:11:47', NULL, 'teste@123', 'alexandre@teste.com'),
+(13, 'Marcelo Leal', 'SUPERVISOR II', 'Gestao - Ti Servicos', 'Alexandre Preto', 2, '2024-07-19 10:13:36', NULL, 'teste@123', 'marcelo@teste.com'),
+(14, 'Lerroy Rosa', 'TECNICO INFORMATICA II', 'Gestao - Ti Servicos', 'Marcelo Leal', 1, '2024-06-10 09:46:46', NULL, 'teste@123', 'lerroy@teste.com'),
+(15, 'Lucas Beccon', 'Tecnico Informatica II', 'Gestao - Ti Servicos', 'Matheus Bandeira', 1, '0000-00-00 00:00:00', NULL, 'teste@123', 'lucas@teste.com');
+
 -- --------------------------------------------------------
 
 --
@@ -93,7 +106,7 @@ CREATE TABLE `resultado` (
   `COMECAR` varchar(4000) DEFAULT NULL,
   `PARAR` varchar(4000) DEFAULT NULL,
   `CONTINUAR` varchar(4000) DEFAULT NULL,
-  `NOTA_RESULTADO` int(11) DEFAULT NULL,
+  `NOTA_RESULTADO` varchar(3) DEFAULT NULL,
   `JUSTIFICATIVA_NAO_CONTRATACAO` varchar(4000) DEFAULT NULL,
   `ID_AVALIACAO` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -142,25 +155,25 @@ ALTER TABLE `resultado`
 -- AUTO_INCREMENT de tabela `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  MODIFY `ID_AVALIACAO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `ID_AVALIACAO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de tabela `colaborador`
 --
 ALTER TABLE `colaborador`
-  MODIFY `ID_COLABORADOR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_COLABORADOR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `objetivo`
 --
 ALTER TABLE `objetivo`
-  MODIFY `ID_OBJETIVO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_OBJETIVO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `resultado`
 --
 ALTER TABLE `resultado`
-  MODIFY `ID_RESULTADO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_RESULTADO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restrições para tabelas despejadas
